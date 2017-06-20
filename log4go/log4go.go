@@ -452,8 +452,8 @@ func init() {
 			}
 		}
 	}
-	flag.Var(&logging.vmodule, "vmodule", "comma-separated list of pattern=N settings for file-filtered logging")
-	flag.Var(&logging.traceLocation, "log_backtrace_at", "when logging hits line file:N, emit a stack trace")
+	flag.Var(&logging.vmodule, "log4govmodule", "comma-separated list of pattern=N settings for file-filtered logging")
+	flag.Var(&logging.traceLocation, "log4go_log_backtrace_at", "when logging hits line file:N, emit a stack trace")
 	go logging.flushDaemon()
 }
 
@@ -975,19 +975,19 @@ func Debugf(format string, args ...interface{}) {
 	logging.printf(debugLog, format, args...)
 }
 
-func Warning(args ...interface{}) {
+func Warn(args ...interface{}) {
 	logging.print(warningLog, args...)
 }
 
-func WarningDepth(depth int, args ...interface{}) {
+func WarnDepth(depth int, args ...interface{}) {
 	logging.printDepth(warningLog, depth, args...)
 }
 
-func Warningln(args ...interface{}) {
+func Warnln(args ...interface{}) {
 	logging.println(warningLog, args...)
 }
 
-func Warningf(format string, args ...interface{}) {
+func Warnf(format string, args ...interface{}) {
 	logging.printf(warningLog, format, args...)
 }
 
